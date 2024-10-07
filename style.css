@@ -117,6 +117,7 @@ dl, dt, dd, ol, ul, li {
 	line-height: 0;
 	width: 100%;
 	overflow:hidden;
+	
 }
 
 ::selection {
