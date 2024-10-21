@@ -18,7 +18,7 @@ function registreer() {
 
     }else{
         $.ajax({
-            url:'./includes/signup.php',
+            url:'./include/includes_gip/signup_includes.php',
             method:'POST',
             data:{
                 voornaam,
@@ -29,6 +29,8 @@ function registreer() {
             },
             datatype:'json',
             success: function(){
+                alert('je acount is aangemaakt.')
+                window.location.href = './login.php';
                 console.log('yay')
             }
             
