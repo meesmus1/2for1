@@ -4,13 +4,9 @@ include './dtb.php';
 
 $response = array();
 
-
 $username = $_POST['email'];
 $password = $_POST['password'];
 $userexist = false;
-
-
-
 
 
 $sql = "SELECT * FROM `users` WHERE `email`=?";
@@ -26,6 +22,7 @@ if ($row && password_verify($password,$row['password'])) {
     $userexist = true;
     $_SESSION['email'] = $row['email'];
     $_SESSION['password'] = $row['password'];
+    $_SESSION['user_id'] = $row['id'];
 }
 
 $response['error'] = $userexist;

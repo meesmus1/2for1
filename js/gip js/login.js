@@ -21,7 +21,7 @@ function login() {
             console.log(data)
             if (data['error'] == true) {
                 alert('het werkt')
-                window.location.href = './index.html';
+                window.location.href = './index.php';
             } else {
                 alert('Er ging iets mis.')
             }
