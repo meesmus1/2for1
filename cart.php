@@ -1,3 +1,12 @@
+<?php
+
+session_start(); 
+if (!$_SESSION || !$_SESSION['email']) {
+    header('Location: ./index.php');
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -138,7 +147,7 @@
                                         <div style="width: 2rem"></div>
                                     </li>
 
-                                    <li class="noborder menu-item"><a class="menu-link" href="#">
+                                    <li class="noborder menu-item"><a class="menu-link" style="cursor: pointer" onclick="logout()">
                                             <div>Logout</div>
                                         </a></li>
 
@@ -164,6 +173,12 @@
                                         <div class="before-heading font-secondary color">Bestellen:</div>
                                         <br><br>
                                         <form style="width: 23rem;">
+
+                                            <div class="form-outline mb-4">
+                                                <label class="form-label" for="naam">Naam</label>
+                                                <input type="text" id="naam" class="form-control" required>
+                                            </div>
+
                                             <div class="form-outline mb-4">
                                                 <button class="btn button btn-sm" type="button" onclick="adjustQuantity('smos-kaas', -1)">-</button>
                                                 <label class="form-label">Smos Kaas</label>
@@ -409,45 +424,22 @@
         <!-- Footer Scripts
 	============================================= -->
         <script src="js/functions.js"></script>
+        <script src="./js/cart.js"></script>
+
+        <script>
+            function logout() {
+                $.ajax({
+                    url: './include/logout.php',
+                    method: 'POST',
+                    data: {},
+                    dataType: 'json',
+                    success: function(data) {
+                        window.location.href = './index.php';
+                    }
+                })
+            }
+        </script>
 
     </body>
 
     </html>
-
-
-    <script>
-        // Functie om het aantal te wijzigen
-        function adjustQuantity(item, change) {
-            const quantitySpan = document.getElementById(`${item}-quantity`);
-            let currentQuantity = parseInt(quantitySpan.textContent);
-
-            // Zorg dat het aantal niet negatief wordt
-            if (currentQuantity + change >= 0) {
-                quantitySpan.textContent = currentQuantity + change;
-            }
-        }
-
-        // Functie om alle hoeveelheden terug te zetten naar 0
-        function resetQuantities() {
-            document.getElementById('smos-kaas-quantity').textContent = 0;
-            document.getElementById('smos-ham-quantity').textContent = 0;
-            document.getElementById('smos-martino-quantity').textContent = 0;
-        }
-
-        // Bestellen functie
-        function bestellen() {
-            const smosKaas = parseInt(document.getElementById('smos-kaas-quantity').textContent);
-            const smosHam = parseInt(document.getElementById('smos-ham-quantity').textContent);
-            const smosMartino = parseInt(document.getElementById('smos-martino-quantity').textContent);
-
-            if (smosKaas === 0 && smosHam === 0 && smosMartino === 0) {
-                document.getElementById('isempty').style.display = 'block';
-            } else {
-                document.getElementById('isempty').style.display = 'none';
-                alert(`Bestelling geplaatst: Smos Kaas: ${smosKaas}, Smos Ham: ${smosHam}, Smos Martino: ${smosMartino}`);
-
-                // Zet alle hoeveelheden terug naar 0
-                resetQuantities();
-            }
-        }
-    </script>
