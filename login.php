@@ -1,7 +1,7 @@
 <?php
 
 session_start(); 
-if ($_SESSION && $_SESSION['email']) {
+if ($_SESSION && isset($_SESSION['email'])) {
     header('Location: ./index.php');
 }
 

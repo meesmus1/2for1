@@ -92,8 +92,8 @@ session_start()
 						<!-- Logo
 						============================================= -->
 						<div id="logo">
-							<a href="index.html" class="standard-logo" data-dark-logo="demos/burger/images/logo-dark.png" data-sticky-logo="demos/burger/images/logo-sticky.png"><img src="demos/burger/images/logo.png" alt="Canvas Logo"></a>
-							<a href="index.html" class="retina-logo" data-dark-logo="demos/burger/images/logo-dark@2x.png" data-sticky-logo="demos/burger/images/logo-sticky@2x.png"><img src="demos/burger/images/logo@2x.png" alt="Canvas Logo"></a>
+							<a href="index.php" class="standard-logo" data-dark-logo="demos/burger/images/logo-dark.png" data-sticky-logo="demos/burger/images/logo-sticky.png"><img src="demos/burger/images/logo.png" alt="Canvas Logo"></a>
+							<a href="index.php" class="retina-logo" data-dark-logo="demos/burger/images/logo-dark@2x.png" data-sticky-logo="demos/burger/images/logo-sticky@2x.png"><img src="demos/burger/images/logo@2x.png" alt="Canvas Logo"></a>
 						</div><!-- #logo end -->
 
 						<div class="header-misc">
@@ -114,7 +114,7 @@ session_start()
 						============================================= -->
 						<?php
 						
-						if ($_SESSION && $_SESSION['email']) {
+						if ($_SESSION && isset($_SESSION['email'])) {
 							echo '<nav class="primary-menu">
 								<ul class="one-page-menu menu-container" data-easing="easeInOutExpo" data-speed="1250" data-offset="60">
 									<li class="current menu-item"><a class="menu-link" href="#" data-href="#slider">
@@ -166,7 +166,7 @@ session_start()
 								</ul>
 							</nav>';
 						}
-						
+
 						?>
 						
 
@@ -192,7 +192,7 @@ session_start()
 								<a data-scrollto="#menu" data-easing="easeInOutExpo" data-speed="1250" class="button button-large button-rounded px-4 button-reveal d-inline-flex tright font-weight-semibold" data-animate="fadeInUp" data-delay="200">Bekijk het menu</a>
 								<?php
 								
-								if ($_SESSION && $_SESSION['email']) {
+								if ($_SESSION && isset($_SESSION['email'])) {
 									echo'<a href="./cart.php" data-easing="easeInOutExpo" data-speed="1250" class="button button-large button-rounded px-4 button-reveal d-inline-flex tright font-weight-semibold" data-animate="fadeInUp" data-delay="200">Bestel broodjes Provil</a>';
 								} else {
 
@@ -483,7 +483,7 @@ session_start()
 								<a href="tel:(00)32498820039" class="d-block h6 text-white ls1 font-weight-normal font-primary mb-5">GSM: (00)32 498 82 00 39</a>
 
 								<div class="font-secondary h5 mb-2 color">Email:</div>
-								<a href="mailtoinfo@christophegratessolle.com" class="d-block h6 text-white ls1 font-weight-normal font-primary mb-5">info@christophegratessolle.com</a>
+								<a href="mailto:mees.vanderheijden@provil.be" class="d-block h6 text-white ls1 font-weight-normal font-primary mb-5">mees.vanderheijden@provil.be</a>
 
 								<div class="font-secondary h5 mb-2 color">Openingsuren:</div>
 								<div class="h6 text-white ls1 font-weight-normal font-primary">Maandag 11:00 - 14:00</div>
