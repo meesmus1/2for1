@@ -1,3 +1,12 @@
+<?php
+
+session_start(); 
+if ($_SESSION && isset($_SESSION['email'])) {
+    header('Location: ./index.php');
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
